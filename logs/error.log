@@ -1,0 +1,21 @@
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.23.0.3. Set the 'ServerName' directive globally to suppress this message
+[Tue Mar 03 20:14:29.771682 2020] [mpm_prefork:notice] [pid 9] AH00163: Apache/2.4.25 (Debian) PHP/7.2.7 configured -- resuming normal operations
+[Tue Mar 03 20:14:29.771756 2020] [core:notice] [pid 9] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Tue Mar 03 20:15:46.943563 2020] [autoindex:error] [pid 10] [client 172.23.0.1:50956] AH01276: Cannot serve directory /var/www/html/: No matching DirectoryIndex (index.php,index.html) found, and server-generated directory index forbidden by Options directive
+[Tue Mar 03 20:15:47.021072 2020] [php7:error] [pid 10] [client 172.23.0.1:50956] script '/var/www/html/index.php' not found or unable to stat
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.23.0.3. Set the 'ServerName' directive globally to suppress this message
+[Tue Mar 03 21:27:56.600156 2020] [mpm_prefork:notice] [pid 8] AH00163: Apache/2.4.25 (Debian) PHP/7.2.7 configured -- resuming normal operations
+[Tue Mar 03 21:27:56.600209 2020] [core:notice] [pid 8] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.23.0.3. Set the 'ServerName' directive globally to suppress this message
+[Tue Mar 03 21:33:35.376326 2020] [mpm_prefork:notice] [pid 8] AH00163: Apache/2.4.25 (Debian) PHP/7.2.7 configured -- resuming normal operations
+[Tue Mar 03 21:33:35.376381 2020] [core:notice] [pid 8] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.23.0.3. Set the 'ServerName' directive globally to suppress this message
+[Tue Mar 03 21:46:50.998874 2020] [mpm_prefork:notice] [pid 8] AH00163: Apache/2.4.25 (Debian) PHP/7.2.7 configured -- resuming normal operations
+[Tue Mar 03 21:46:50.998947 2020] [core:notice] [pid 8] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Tue Mar 03 21:52:01.000122 2020] [autoindex:error] [pid 9] [client 172.23.0.1:52490] AH01276: Cannot serve directory /var/www/html/test/: No matching DirectoryIndex (index.php,index.html) found, and server-generated directory index forbidden by Options directive
+[Tue Mar 03 21:59:48.911703 2020] [autoindex:error] [pid 10] [client 172.23.0.1:52570] AH01276: Cannot serve directory /var/www/html/test/: No matching DirectoryIndex (index.php,index.html) found, and server-generated directory index forbidden by Options directive
+[Tue Mar 03 21:59:48.961747 2020] [php7:error] [pid 10] [client 172.23.0.1:52570] script '/var/www/html/index.php' not found or unable to stat
+[Tue Mar 03 21:59:53.810099 2020] [autoindex:error] [pid 11] [client 172.23.0.1:52576] AH01276: Cannot serve directory /var/www/html/test/: No matching DirectoryIndex (index.php,index.html) found, and server-generated directory index forbidden by Options directive
+[Tue Mar 03 21:59:53.859140 2020] [php7:error] [pid 11] [client 172.23.0.1:52576] script '/var/www/html/index.php' not found or unable to stat
+[Tue Mar 03 22:00:35.215985 2020] [autoindex:error] [pid 12] [client 172.23.0.1:52582] AH01276: Cannot serve directory /var/www/html/test/: No matching DirectoryIndex (index.php,index.html) found, and server-generated directory index forbidden by Options directive
+[Tue Mar 03 22:01:24.023131 2020] [autoindex:error] [pid 13] [client 172.23.0.1:52588] AH01276: Cannot serve directory /var/www/html/test/: No matching DirectoryIndex (index.php,index.html) found, and server-generated directory index forbidden by Options directive
