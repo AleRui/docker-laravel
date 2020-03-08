@@ -16,3 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// My first controller.
+Route::get('firstpage', 'MiPrimerController@index');
+
+// With controller.
+// type in browser: path/firstpage/create
+Route::resource('firstpage-two', 'MiPrimerController');
+
+// Alias
+Route::get(
+  'firstpage',
+  [
+    'uses' => 'MiPrimerController@index',
+    'as' => 'my_alias'
+  ]
+);
+
+Route::get('otherview', 'MiPrimerController@otherview');
