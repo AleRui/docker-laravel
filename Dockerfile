@@ -1,4 +1,5 @@
-FROM php:7.2.7-apache
+# Laravel must be version >= 7.2.5
+FROM php:7.4.3-apache
 
 LABEL maintainer="alejandroruizlopez0@gmail.com"
 
@@ -31,7 +32,7 @@ RUN apt-get update && apt-get install -y --fix-missing \
   linux-libc-dev \
   locate \
   lynx \
-  mysql-client \
+  #mysql-client \
   mariadb-client \
   psmisc \
   systemd \
@@ -41,33 +42,34 @@ RUN apt-get update && apt-get install -y --fix-missing \
   apt-get clean &&  \
   rm -r /var/lib/apt/lists/*
 
-RUN docker-php-ext-configure gd \
-  --with-gd \
-  --with-freetype-dir=/usr/include/ \
-  --with-jpeg-dir=/usr/include/ \
-  --with-png-dir=/usr/include/
-
 RUN docker-php-ext-install \
-  bcmath \
+	# Use Laravel
+	bcmath \
+	ctype \
+	fileinfo \
+	json \
+	mbstring \
+	#openssl \
+	pdo_mysql \
+	tokenizer \
+	xml \
+	# Others php
   calendar \
-  ctype \
   exif \
-  fileinfo \
   ftp \
   gd \
   intl \
-  json \
-  mbstring \
   mysqli \
   opcache \
-  #openssl \
-  pdo_mysql \
   soap \
   simplexml \
-  tokenizer \
   xsl \
-  xml \
   zip
+
+RUN docker-php-ext-configure gd \
+	--with-freetype=/usr/include/ \
+	--with-jpeg=/usr/include/
+
 
 RUN a2enmod rewrite
 RUN a2enmod headers
@@ -90,6 +92,8 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV PATH "$PATH:/root/.composer/vendor/bin"
 
 # Manually set up the apache environment variables
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
@@ -100,6 +104,8 @@ RUN chown -R www-data:www-data /var/www/html
 
 RUN usermod -u 1000 www-data
 RUN groupmod -g 1000 www-data
+
+ADD /config/my-httpd.conf /etc/apache2/sites-enabled/000-default.conf
 
 # Expose apache.
 EXPOSE 80

@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Agregando autenticacion
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth.basic');
 
 // My first controller.
 Route::get('firstpage', 'MiPrimerController@index');
