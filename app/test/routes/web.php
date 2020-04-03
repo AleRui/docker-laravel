@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 // Agregando autenticacion
 Route::get('/', function () {
     return view('welcome');
-})->middleware('auth.basic');
+});
+//)->middleware('auth.basic');
 
 // My first controller.
 Route::get('firstpage', 'MiPrimerController@index');
@@ -27,11 +29,15 @@ Route::resource('firstpage-two', 'MiPrimerController');
 
 // Alias
 Route::get(
-  'firstpage',
-  [
-    'uses' => 'MiPrimerController@index',
-    'as' => 'my_alias'
-  ]
+    'firstpage',
+    [
+        'uses' => 'MiPrimerController@index',
+        'as' => 'my_alias'
+    ]
 );
 
 Route::get('otherview', 'MiPrimerController@otherview');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -66,9 +66,13 @@ RUN docker-php-ext-install \
   xsl \
   zip
 
+# Node y NPM
+RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
+RUN apt-get update && apt-get install -y nodejs
+
 RUN docker-php-ext-configure gd \
-	--with-freetype=/usr/include/ \
-	--with-jpeg=/usr/include/
+  --with-freetype=/usr/include/ \
+  --with-jpeg=/usr/include/
 
 
 RUN a2enmod rewrite
@@ -102,8 +106,12 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 
 RUN chown -R www-data:www-data /var/www/html
 
-RUN usermod -u 1000 www-data
-RUN groupmod -g 1000 www-data
+#RUN usermod -u 1000 www-data
+#RUN groupmod -g 1000 www-data
+# Change www-data user to match the host system UID and GID and chown www directory
+RUN usermod --non-unique --uid 1000 www-data \
+  && groupmod --non-unique --gid 1000 www-data \
+  && chown -R www-data:www-data /var/www
 
 ADD /config/my-httpd.conf /etc/apache2/sites-enabled/000-default.conf
 
