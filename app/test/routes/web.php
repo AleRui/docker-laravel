@@ -21,22 +21,22 @@ Route::get('/', function () {
 //)->middleware('auth.basic');
 
 // My first controller.
-Route::get('firstpage', 'MiPrimerController@index');
+//Route::get('firstpage', 'MiPrimerController@index');
 
 // With controller.
 // type in browser: path/firstpage/create
-Route::resource('firstpage-two', 'MiPrimerController');
+//Route::resource('firstpage-two', 'MiPrimerController');
 
 // Alias
-Route::get(
-    'firstpage',
-    [
-        'uses' => 'MiPrimerController@index',
-        'as' => 'my_alias'
-    ]
-);
+//Route::get(
+//    'firstpage',
+//    [
+//        'uses' => 'MiPrimerController@index',
+//        'as' => 'my_alias'
+//    ]
+//);
 
-Route::get('otherview', 'MiPrimerController@otherview');
+//Route::get('otherview', 'MiPrimerController@otherview');
 
 Auth::routes();
 

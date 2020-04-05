@@ -1,7 +1,7 @@
 # Laravel must be version >= 7.2.5
 FROM php:7.4.3-apache
 
-LABEL maintainer="alejandroruizlopez0@gmail.com"
+LABEL maintainer=""
 
 USER root
 
