@@ -37,4 +37,8 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    // Lale to modify AuthenticatesUsers
+    // View the methods
+    // and Overwrite in this controller.
 }

@@ -70,4 +70,12 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    // Lale If a I create method: redirectTo
+    // This has preferences over
+
+    //public function redirectTo()
+    //{
+    //    return 'dashboard';
+    //}
 }

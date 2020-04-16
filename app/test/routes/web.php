@@ -38,6 +38,15 @@ Route::get('/', function () {
 
 //Route::get('otherview', 'MiPrimerController@otherview');
 
-Auth::routes();
+Auth::routes([
+    'register' => false,
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard.index');
+        //return 'Dashboard';
+    })->name('dashboard');
+});
