@@ -4,4 +4,5 @@
 
 @section('content')
     <h2>Content</h2>
+    {{ Auth::user()->email }}
 @endsection
